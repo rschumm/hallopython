@@ -1,3 +1,4 @@
+kind: Service
 spec:
   ports:
     - name: 5000-tcp
