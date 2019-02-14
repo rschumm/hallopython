@@ -31,6 +31,9 @@ Apply the template [redis-persistent](https://github.com/openshift/origin/blob/m
 
 
 
-Documentation for the `oc new app` [command](https://docs.openshift.com/container-platform/3.11/dev_guide/application_lifecycle/new_app.html).
+Documentation for the `oc new app` [command](https://docs.openshift.com/container-platform/3.11/dev_guide/application_lifecycle/new_app.html).   
 
+ps: to run the application locally: (needs a redis cache of course...) 
 
+    pip install -r requirements.txt
+    python app.py 

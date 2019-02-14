@@ -2,7 +2,7 @@ import time
 import os
 
 import redis
-from flask import Flask
+from flask import Flask, render_template
 
 
 app = Flask(__name__)
@@ -21,10 +21,20 @@ def get_hit_count():
             time.sleep(0.5)
 
 
-@app.route('/')
+@app.route('/hello')
 def hello():
     count = get_hit_count()
     return 'Hello World! I have been seen {} times.\n'.format(count)
+
+
+@app.route('/')
+def template():
+    count = get_hit_count()
+    #count = 1621
+    return render_template('index.html', count=count)
+
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

@@ -40,7 +40,8 @@
   }
   
   h1 {
-  	font-family: "ReplicaBold";
+    /* font-family: "ReplicaBold",Helvetica,Arial; */
+    font-weight: bold; 
   }
   
   .container {
@@ -57,7 +58,7 @@
   }
 
   .card-header {
-    background: url(/diagonal.png);
+    background: url(/static/diagonal.png);
   }
 
   .card-header h4 {

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<#include "header.ftl">
+{% include 'header.html' %}
 </head>
 
 <body>
@@ -21,7 +21,7 @@
         <h4 class="my-0 font-weight-normal">Python</h4>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">Python Flask</h1>
+        <h2 class="card-title pricing-card-title">Python Flask</h2>
         <ul class="list-unstyled mt-3 mb-4">
           <li>Minimalistische Python Applikation</li>
           <li>REST-ful request dispatching</li>
@@ -35,21 +35,21 @@
       <div class="card-body">
           <ul class="list-unstyled mt-3 mb-4">
               <li>Hello World! I have been seen...</li>
-            </ul>
-        <h1 class="card-title pricing-card-title">100</h1>
+          </ul>
+        <h1 class="card-title pricing-card-title">{{ count }}</h1>
         <ul class="list-unstyled mt-3 mb-4">
           <li>times. </li>
           <li>The number is in Redis and persistent. </li>
-          <li>(d.h. die Nummer überlebt auch einen Pod-Restart das Redis-Caches.)/li>
+          <li>(d.h. die Nummer überlebt auch einen Pod-Restart das Redis-Caches.)</li>
         </ul>
       </div>
     </div>
     <div class="card mb-4 shadow-sm">
-      <div class="card-header"></div>
+      <div class="card-header">
         <h4 class="my-0 font-weight-normal">Redis</h4>
       </div>
       <div class="card-body">
-        <h1 class="card-title pricing-card-title">Redis (persistent)</h1>
+        <h2 class="card-title pricing-card-title">Redis</h2>
         <ul class="list-unstyled mt-3 mb-4">
           <li>Der Redis Cache ist persistent auf einem Persistence-Claim. </li>
           <li>Diese Applikation ist unser Demo-Case. </li>
@@ -58,7 +58,7 @@
     </div>
   </div>	
 
-	<#include "footer.ftl">
+	{% include 'footer.html' %}
 </div>
 </body>
 </html>
