@@ -8,20 +8,25 @@ OpenShift erstellt für die Python-Applikation automatisch eine BuildConfig und 
 Der Redis-Cache wird in diesem Set-Up von Hand mit einem Template von OpenShift erstellt. 
 
 
-# 1. Redis 
+# OpenShift Project 
+
+    oc new-project py
+
+
+# Redis 
 
 Apply the template [redis-persistent](https://github.com/openshift/origin/blob/master/examples/db-templates/redis-persistent-template.json) 
-(Do this with the button "Add to project -> import from json" hand or by `oc create -f...`)
+(Do this with the button "Add to project -> import from json" hand or by `oc create -f...`) - or by just 
+selection Redis from the Catalog.  
 
 
 
-# 2. Python Applikation 
-
-    oc new-project python
+# Python Applikation 
+    
     oc new-app openshift/python~https://github.com/rschumm/hallopython.git
 
 
-# 3. Finishing: 
+# Finishing: 
 
 - in the generated build-config of the Phyton-Application, add an environment-variable with name `REDIS_PW` with the value `database-password` from the `redis` secret (this will be read by the Python Application via `os.getenv('REDIS_PW')`)
 - make sure the generated service points to port 5000
