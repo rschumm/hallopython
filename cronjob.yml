@@ -1,0 +1,26 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hallocronjob
+spec:
+  schedule: "*/1 * * * *" 
+  successfulJobsHistoryLimit: 7 
+  failedJobsHistoryLimit: 1 
+  jobTemplate:             
+    spec:
+      template:
+        metadata:
+          labels:          
+            parent: "hallocronjob"
+        spec:
+          containers:
+          - name: hallocronjob
+            image: docker-registry.default.svc:5000/py/hallopython:latest
+            command: ["python",  "job.py"]
+            env:
+            - name: REDIS_PW
+              valueFrom:
+                secretKeyRef:
+                  key: database-password
+                  name: redis
+          restartPolicy: OnFailure 

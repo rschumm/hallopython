@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hallojob
+spec:
+  parallelism: 1    
+  completions: 1    
+  template:         
+    metadata:
+      name: hallojob
+    spec:
+      containers:
+      - name: hallojob
+        image:  docker-registry.default.svc:5000/py/hallopython:latest
+        command: ["python",  "job.py"]
+        env:
+            - name: REDIS_PW
+              valueFrom:
+                secretKeyRef:
+                  key: database-password
+                  name: redis
+      restartPolicy: OnFailure 
