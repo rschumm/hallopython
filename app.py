@@ -27,6 +27,20 @@ def hello():
     count = get_hit_count()
     return 'Hello World! I have been seen {} times.\n'.format(count)
 
+@app.route('/graph')
+def graf():
+    text = Polyglot.eval('R',
+    'svg();
+     require(lattice);
+     x <- 1:100
+     y <- sin(x/10)
+     z <- cos(x^1.3/(runif(1)*5+10))
+     print(cloud(x~y*z, main="cloud plot"))
+     grDevices:::svg.off()
+    '
+    ); 
+    return text
+
 
 @app.route('/')
 def template():

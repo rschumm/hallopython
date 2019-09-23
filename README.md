@@ -65,3 +65,20 @@ to run the application locally: (needs a redis cache of course...)
 
     pip install -r requirements.txt
     python app.py 
+
+
+# Local GraalVM Polyglot experiment 
+
+Plan: use Polyglot to run the Phython App in GraalVM and use R to embed a graph... 
+
+very early stage... 
+
+cf  [this example](https://medium.com/graalvm/graalvm-ten-things-12d9111f307d) and [GraalVM Doku](https://www.graalvm.org/docs/reference-manual/languages/python/)
+
+commands: 
+
+    /home/rschumm/Software/graal/graalvm-ce-19.1.0/bin/gu install python
+    /home/rschumm/Software/graal/graalvm-ce-19.1.0/bin/gu rebuild-images python
+    /home/rschumm/Software/graal/graalvm-ce-19.1.0/bin/graalpython app.py 
+
+
